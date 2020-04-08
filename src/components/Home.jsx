@@ -11,7 +11,8 @@ class Home extends Component {
     };
   }
 
-  _handleLogout = () => {
+  _handleLogout = (e) => {
+      e.preventDefault();
       localStorage.clear()
       this.props.history.push('/login')
   }
@@ -28,7 +29,7 @@ class Home extends Component {
               <div className="column is-1-tablet is-1-desktop is-1-widescreen">
                 <div className="field is-centered">
                   <Link to="/login">
-                    <button className="button is-info">Logout</button>
+                    <button onClick={this._handleLogout} className="button is-info">Logout</button>
                   </Link>
                 </div>
               </div>
